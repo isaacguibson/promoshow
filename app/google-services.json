@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "689333087056",
+    "firebase_url": "https://promoshow-5a03b.firebaseio.com",
+    "project_id": "promoshow-5a03b",
+    "storage_bucket": "promoshow-5a03b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689333087056:android:6b5edbcc6d7eb0f1",
+        "android_client_info": {
+          "package_name": "com.myappcompany.isaac.dealday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689333087056-idagvnf1qr35q3ttt3jue85gbqnu5n0f.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "689333087056-idagvnf1qr35q3ttt3jue85gbqnu5n0f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRaCle4cFHdvf6Z43_PAhQu2ifPIVx-Vw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

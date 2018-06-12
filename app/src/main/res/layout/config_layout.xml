@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+
+        <TextView
+            android:id="@+id/platformsTextConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorFildText"
+            android:padding="5dp"
+            android:textSize="10pt"
+            android:text="@string/platforms_configs" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/colorFild"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="6dp"/>
+
+        <ListView
+            android:id="@+id/configListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/categoriesTextConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/colorFildText"
+            android:padding="5dp"
+            android:text="@string/categories_configs"
+            android:textSize="10pt" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="@color/colorFild"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="6dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="28dp"
+            android:entries="@array/categorie_arrays"
+            android:prompt="@string/category_prompt"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonBackConfig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBack"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="6dp"
+                android:text="@string/back" />
+
+            <Button
+                android:id="@+id/buttonSaveConfig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:textColor="#FFFFFF"
+                android:background="@color/colorSave"
+                android:text="@string/save" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

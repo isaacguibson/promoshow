@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Promoshow</string>
+    <string name="deals">Promoções</string>
+    <string name="favorites">Favoritos</string>
+    <string name="search">Pesquisa</string>
+    <string name="all">Todos</string>
+    <string name="today">Sujestões</string>
+    <string name="back">Voltar</string>
+    <string name="save">Salvar</string>
+    <string name="platforms_configs">Selecione as plataformas que devem aparecer no feed:</string>
+    <string name="categories_configs">Selecione a categoria que deseja receber sugestões:</string>
+    <string name="null_search">Pesquise algo!</string>
+    <string name="not_found_search">Nenhum resultado encontrado</string>
+    <string name="empty_favorite">Adicione algo aos favoritos</string>
+    <string name="null_suggestion">Nenhuma sugestão para você nesta categoria, ajuste a categoria nas configurações!</string>
+
+    <string name="category_prompt">Escolha uma categoria</string>
+
+    <string-array name="categorie_arrays">
+        <item>Nenhum</item>
+        <item>Automotivos</item>
+        <item>Bebes e Crianças</item>
+        <item>Casa e Cozinha</item>
+        <item>Celulares e Smartphones</item>
+        <item>Coisas e Produtos Grátis</item>
+        <item>Comida e Bebida</item>
+        <item>Computadores e Informática</item>
+        <item>Eletrodomésticos</item>
+        <item>Entretenimento e Lazer</item>
+        <item>Esportes e Execícios</item>
+        <item>Livros</item>
+        <item>Moda e Acessórios</item>
+        <item>PC, PlayStation e Xbox</item>
+        <item>Presentes e Serviços</item>
+        <item>Restaurantes</item>
+        <item>Saúde e Beleza</item>
+        <item>Tecnologia e Escritório</item>
+        <item>TV, Som e Vídeo</item>
+        <item>Viagens</item>
+        <item>Outros</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

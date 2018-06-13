@@ -155,13 +155,18 @@ public class DataBaseService {
                         favorite = false;
                     }
 
+
                     item.setFavorite(favorite);
 
                     itens.add(item);
 
+                    if(cursor.getPosition() == 10){
+                        itens.add(new Item(null, null, null, null, null, null, null, false, true));
+                    }
+
                     cursor.moveToNext();
                 }
-                itens.add(new Item(null, null, null, null, null, null, null, false, true));
+
             }
 
         } catch (ParseException e) {

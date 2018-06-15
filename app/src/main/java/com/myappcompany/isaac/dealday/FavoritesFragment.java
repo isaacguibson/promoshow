@@ -3,6 +3,7 @@ package com.myappcompany.isaac.dealday;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -70,15 +71,6 @@ public class FavoritesFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -90,14 +82,24 @@ public class FavoritesFragment extends Fragment {
         //dataBaseService = new DataBaseService(getContext());
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewFavorite);
+
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        init();
+    }
+
+    private void init(){
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         loadFavoriteItens();
-
-        return view;
     }
 
     private void loadFavoriteItens() {

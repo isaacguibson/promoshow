@@ -52,13 +52,25 @@ public class AllItemsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_all, container, false);
 
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        init();
+    }
+
+    private void init(){
         //dataBaseService = new DataBaseService(getContext());
         feedFilled = false;
 
         itens = new ArrayList<Item>();
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -95,11 +107,9 @@ public class AllItemsFragment extends Fragment {
                 }
             }
         });
-
-        return view;
     }
 
-        //pegando itens da paginacao do banco
+    //pegando itens da paginacao do banco
     private List<Item> loadMore(int totalItems){
         return MainActivity.getDataBaseService().getPageItems(totalItems, false, "");
     }

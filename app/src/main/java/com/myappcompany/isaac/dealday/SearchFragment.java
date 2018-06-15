@@ -3,6 +3,7 @@ package com.myappcompany.isaac.dealday;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -101,6 +102,16 @@ public class SearchFragment extends Fragment {
 
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        init();
+    }
+
+    private void init(){
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
 
         recyclerView.setLayoutManager(linearLayoutManager);
@@ -110,18 +121,10 @@ public class SearchFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
-//        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.SearchLinearLayout);
-//        BottomNavigationView navigation = (BottomNavigationView) view.findViewById(R.id.navigation);
-//        Display display = getActivity().getWindowManager().getDefaultDisplay();
-//        Point size = new Point();
-//        display.getSize(size);
-//        int screemSizeHeight = size.y;
-
         searchButton.setOnClickListener(searchListener);
 
         recyclerView.setPadding(0, 0, 0, MainActivity.navigation.getHeight());
 
-        return view;
     }
 
     View.OnClickListener searchListener = new View.OnClickListener() {

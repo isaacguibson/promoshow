@@ -54,19 +54,31 @@ public class  SuggestionsItemsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_today, container, false);
 
-        //dataBaseService = new DataBaseService(getContext());
-        feedFilled = false;
-
         empty_suggest = (TextView) view.findViewById(R.id.textViewEmptySuggest);
         empty_suggest.setVisibility(View.GONE);
+
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBarToday);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewToday);
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        init();
+    }
+
+    private void init(){
+
+        //dataBaseService = new DataBaseService(getContext());
+        feedFilled = false;
 
         res = getResources();
         categories = res.getStringArray(R.array.categorie_arrays);
 
         itens = new ArrayList<Item>();
 
-        progressBar = (ProgressBar) view.findViewById(R.id.progressBarToday);
-        recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewToday);
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
@@ -78,7 +90,6 @@ public class  SuggestionsItemsFragment extends Fragment {
         sharedPref = getActivity().getSharedPreferences("promoshow_shared_prefs", Context.MODE_PRIVATE);
         if(sharedPref.getInt("category", 0) == 0){
             empty_suggest.setVisibility(View.VISIBLE);
-            return view;
         }
 
         loadSuggestFeed();
@@ -109,8 +120,6 @@ public class  SuggestionsItemsFragment extends Fragment {
                 }
             }
         });
-
-        return view;
     }
 
     private void loadSuggestFeed(){

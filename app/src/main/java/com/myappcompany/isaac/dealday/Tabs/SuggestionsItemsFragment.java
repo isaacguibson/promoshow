@@ -126,7 +126,7 @@ public class  SuggestionsItemsFragment extends Fragment {
 
         totalItemsCount = itens.size();
         rssObject = new RSSObject(itens);
-        adapter = new FeedAdapter(rssObject, getContext());
+        adapter = new FeedAdapter(rssObject, getActivity());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

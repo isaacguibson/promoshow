@@ -106,7 +106,7 @@ public class SearchFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         itens = new ArrayList<Item>();
         rssObject = new RSSObject(itens);
-        adapter = new FeedAdapter(rssObject, getContext());
+        adapter = new FeedAdapter(rssObject, getActivity());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

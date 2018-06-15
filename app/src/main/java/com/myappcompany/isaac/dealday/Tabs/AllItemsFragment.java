@@ -185,7 +185,7 @@ public class AllItemsFragment extends Fragment {
             protected void onPostExecute(String s) {
                 long tempoInicial = System.currentTimeMillis();
                 if(!feedFilled){
-                    adapter = new FeedAdapter(rssObject, getContext());
+                    adapter = new FeedAdapter(rssObject, getActivity());
                     recyclerView.setAdapter(adapter);
                     feedFilled = true;
                 }

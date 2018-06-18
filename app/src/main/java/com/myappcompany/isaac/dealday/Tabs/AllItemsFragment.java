@@ -44,6 +44,8 @@ public class AllItemsFragment extends Fragment {
     int currentItems, scrollOutItems;
     int totalItemsCount;
 
+    private Bundle savedInstanceState;
+
     //Variavel para manter informação se o feed já foi carregado alguma vez!
     boolean feedFilled;
 
@@ -55,6 +57,7 @@ public class AllItemsFragment extends Fragment {
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
+        this.savedInstanceState = savedInstanceState;
 
         return view;
     }
@@ -79,7 +82,10 @@ public class AllItemsFragment extends Fragment {
         //Carrega o feed
         mDialog = new ProgressDialog(getActivity());
         mDialog.setCancelable(false);
-        loadRSS();
+
+        if(this.savedInstanceState == null){
+            loadRSS();
+        }
 
         //Esse bloco carrega a paginacao
         isScrolling = false;
@@ -193,7 +199,6 @@ public class AllItemsFragment extends Fragment {
 
             @Override
             protected void onPostExecute(String s) {
-                long tempoInicial = System.currentTimeMillis();
                 if(!feedFilled){
                     adapter = new FeedAdapter(rssObject, getActivity());
                     recyclerView.setAdapter(adapter);

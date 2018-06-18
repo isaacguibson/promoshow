@@ -360,7 +360,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PC");
+        valores.put("ckey", "PC ");
         valores.put("category", "PC, PlayStation e Xbox");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -375,7 +375,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "UPLAY");
+        valores.put("ckey", "UPLAY ");
         valores.put("category", "PC, PlayStation e Xbox");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -385,7 +385,12 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "GAME");
+        valores.put("ckey", "GAME ");
+        valores.put("category", "PC, PlayStation e Xbox");
+        dataBaseService.insert("chavecategoria", null, valores);
+
+        valores = new ContentValues();
+        valores.put("ckey", "GAMER ");
         valores.put("category", "PC, PlayStation e Xbox");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -410,12 +415,12 @@ public class DataBaseService {
 
         //INICIO Celulares e Smartphones
         valores = new ContentValues();
-        valores.put("ckey", "CELULAR");
+        valores.put("ckey", "CELULAR ");
         valores.put("category", "Celulares e Smartphones");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "SMARTPHONE");
+        valores.put("ckey", "SMARTPHONE ");
         valores.put("category", "Celulares e Smartphones");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -472,7 +477,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "LAVAR");
+        valores.put("ckey", " LAVAR ");
         valores.put("category", "Eletrodomésticos");
         dataBaseService.insert("chavecategoria", null, valores);
         //FIM Eletrodomésticos
@@ -484,62 +489,62 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "SAIA");
+        valores.put("ckey", "SAIA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CAMISA");
+        valores.put("ckey", "CAMISA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CALÇA");
+        valores.put("ckey", "CALÇA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "SHORT");
+        valores.put("ckey", "SHORT ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "BLUSA");
+        valores.put("ckey", "BLUSA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CAMISETA");
+        valores.put("ckey", "CAMISETA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "REGATA");
+        valores.put("ckey", "REGATA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "BRINCO");
+        valores.put("ckey", "BRINCO ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "ANEL");
+        valores.put("ckey", "ANEL ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "COLAR");
+        valores.put("ckey", "COLAR ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CORDÃO");
+        valores.put("ckey", "CORDÃO ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PULSEIRA");
+        valores.put("ckey", "PULSEIRA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -569,12 +574,17 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "MODA");
+        valores.put("ckey", "MODA ");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "BIJU");
+        valores.put("ckey", "BIJU ");
+        valores.put("category", "Moda e Acessórios");
+        dataBaseService.insert("chavecategoria", null, valores);
+
+        valores = new ContentValues();
+        valores.put("ckey", "BIJUTERIA");
         valores.put("category", "Moda e Acessórios");
         dataBaseService.insert("chavecategoria", null, valores);
         //FIM Moda e Acessórios
@@ -596,12 +606,12 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PAPEL");
+        valores.put("ckey", "PAPEL ");
         valores.put("category", "Tecnologia e Escritório");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "AGENDA");
+        valores.put("ckey", "AGENDA ");
         valores.put("category", "Tecnologia e Escritório");
         dataBaseService.insert("chavecategoria", null, valores);
         //FIM Tecnologia e Escritório
@@ -623,12 +633,12 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "MAÇÃ");
+        valores.put("ckey", "MAÇÃ ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "UVA");
+        valores.put("ckey", "UVA ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -643,22 +653,22 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "SUCO");
+        valores.put("ckey", "SUCO ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "POLPA");
+        valores.put("ckey", "POLPA ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CARNE");
+        valores.put("ckey", "CARNE ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "ARROZ");
+        valores.put("ckey", "ARROZ ");
         valores.put("category", "Comida e Bebida");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -675,7 +685,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "BURGUER");
+        valores.put("ckey", "BURGUER ");
         valores.put("category", "Restaurantes");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -722,7 +732,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "MESA");
+        valores.put("ckey", "MESA ");
         valores.put("category", "Casa e Cozinha");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -732,7 +742,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "FACAS");
+        valores.put("ckey", "FACAS ");
         valores.put("category", "Casa e Cozinha");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -742,7 +752,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PANELA");
+        valores.put("ckey", "PANELA ");
         valores.put("category", "Casa e Cozinha");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -754,12 +764,12 @@ public class DataBaseService {
 
         //INICIO Automotivos
         valores = new ContentValues();
-        valores.put("ckey", "MOTO");
+        valores.put("ckey", "MOTO ");
         valores.put("category", "Automotivos");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "CARRO");
+        valores.put("ckey", "CARRO ");
         valores.put("category", "Automotivos");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -801,7 +811,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "ESMALTE");
+        valores.put("ckey", "ESMALTE ");
         valores.put("category", "Saúde e Beleza");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -826,7 +836,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "RÍMEL");
+        valores.put("ckey", "RÍMEL ");
         valores.put("category", "Saúde e Beleza");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -851,7 +861,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "KAY");
+        valores.put("ckey", " KAY");
         valores.put("category", "Saúde e Beleza");
         dataBaseService.insert("chavecategoria", null, valores);
         //FIM Saúde e Beleza
@@ -883,7 +893,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PLACA");
+        valores.put("ckey", "PLACA ");
         valores.put("category", "Computadores e Informática");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -908,7 +918,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "FONTE");
+        valores.put("ckey", "FONTE ");
         valores.put("category", "Computadores e Informática");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -933,12 +943,7 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "GAMER");
-        valores.put("category", "Computadores e Informática");
-        dataBaseService.insert("chavecategoria", null, valores);
-
-        valores = new ContentValues();
-        valores.put("ckey", "FONE");
+        valores.put("ckey", "FONE ");
         valores.put("category", "Computadores e Informática");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -950,12 +955,12 @@ public class DataBaseService {
 
         //INICIO TV, Som e Vídeo
         valores = new ContentValues();
-        valores.put("ckey", "TV");
+        valores.put("ckey", "TV ");
         valores.put("category", "TV, Som e Vídeo");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "TELEVISÃO");
+        valores.put("ckey", "TELEVISÃO ");
         valores.put("category", "TV, Som e Vídeo");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -985,11 +990,6 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "HOME THEATER");
-        valores.put("category", "TV, Som e Vídeo");
-        dataBaseService.insert("chavecategoria", null, valores);
-
-        valores = new ContentValues();
         valores.put("ckey", "SOM");
         valores.put("category", "TV, Som e Vídeo");
         dataBaseService.insert("chavecategoria", null, valores);
@@ -1009,7 +1009,12 @@ public class DataBaseService {
 
         //INICIO Viagens
         valores = new ContentValues();
-        valores.put("ckey", "VIAGE");
+        valores.put("ckey", "VIAGEM ");
+        valores.put("category", "Viagens");
+        dataBaseService.insert("chavecategoria", null, valores);
+
+        valores = new ContentValues();
+        valores.put("ckey", "VIAGENS ");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -1019,17 +1024,17 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "PASSAGE");
+        valores.put("ckey", "PASSAGEM");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "VIAGEM");
+        valores.put("ckey", "PASSAGENS");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "HOTEL");
+        valores.put("ckey", "HOTEL ");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 
@@ -1039,12 +1044,12 @@ public class DataBaseService {
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "TAM");
+        valores.put("ckey", "TAM ");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 
         valores = new ContentValues();
-        valores.put("ckey", "GOL");
+        valores.put("ckey", "GOL ");
         valores.put("category", "Viagens");
         dataBaseService.insert("chavecategoria", null, valores);
 

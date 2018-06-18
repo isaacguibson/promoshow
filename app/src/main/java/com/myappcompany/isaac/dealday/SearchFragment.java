@@ -7,9 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -47,6 +50,8 @@ public class SearchFragment extends Fragment {
     private TextView textViewSearch;
     private TextView textViewEmptySearch;
 
+    private Bundle savedInstanceState;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -82,6 +87,8 @@ public class SearchFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        this.savedInstanceState = savedInstanceState;
     }
 
     @Override
@@ -102,6 +109,20 @@ public class SearchFragment extends Fragment {
 
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
+        searchText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if(i == EditorInfo.IME_ACTION_DONE){
+                    InputMethodManager imm = (InputMethodManager)textView.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    assert imm != null;
+                    imm.hideSoftInputFromWindow(textView.getWindowToken(), 0);
+                    searchByTitle();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         return view;
     }
 
@@ -117,7 +138,9 @@ public class SearchFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         itens = new ArrayList<Item>();
         rssObject = new RSSObject(itens);
-        adapter = new FeedAdapter(rssObject, getActivity());
+        if(savedInstanceState == null){
+            adapter = new FeedAdapter(rssObject, getActivity());
+        }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -127,28 +150,34 @@ public class SearchFragment extends Fragment {
 
     }
 
+    private void searchByTitle(){
+        textViewSearch.setVisibility(View.GONE);
+        textViewEmptySearch.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
+        String search =  searchText.getText().toString();
+
+        if (search.equals("") || search == null){
+            textViewSearch.setVisibility(View.VISIBLE);
+            recyclerView.setVisibility(View.GONE);
+            return;
+        }
+
+        List<Item> resultItems = MainActivity.getDataBaseService().searchItems(searchText.getText().toString());
+        recyclerView.scrollToPosition(0);
+        adapter.getRssObject().setItems(resultItems);
+        adapter.notifyDataSetChanged();
+        if(resultItems == null || resultItems.isEmpty()){
+            textViewEmptySearch.setVisibility(View.VISIBLE);
+            return;
+        }
+
+
+    }
+
     View.OnClickListener searchListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            textViewSearch.setVisibility(View.GONE);
-            textViewEmptySearch.setVisibility(View.GONE);
-            recyclerView.setVisibility(View.VISIBLE);
-            String search =  searchText.getText().toString();
-
-            if (search.equals("") || search == null){
-                textViewSearch.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.GONE);
-                return;
-            }
-
-            List<Item> resultItems = MainActivity.getDataBaseService().searchItems(searchText.getText().toString());
-            adapter.getRssObject().setItems(resultItems);
-            adapter.notifyDataSetChanged();
-            if(resultItems == null || resultItems.isEmpty()){
-                textViewEmptySearch.setVisibility(View.VISIBLE);
-                return;
-            }
-
+            searchByTitle();
         }
     };
 

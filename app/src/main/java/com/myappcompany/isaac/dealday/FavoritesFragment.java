@@ -48,6 +48,8 @@ public class FavoritesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
+    private Bundle savedInstanceState;
+
     public FavoritesFragment() {
         // Required empty public constructor
     }
@@ -83,6 +85,7 @@ public class FavoritesFragment extends Fragment {
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerViewFavorite);
 
+        this.savedInstanceState = savedInstanceState;
 
         return view;
     }
@@ -99,7 +102,9 @@ public class FavoritesFragment extends Fragment {
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        loadFavoriteItens();
+        if(savedInstanceState == null){
+            loadFavoriteItens();
+        }
     }
 
     private void loadFavoriteItens() {

@@ -103,7 +103,11 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
 
         //Seting imageView to downloading image
         if(rssObject.getItems().get(position).getUrlImage() == null){
-            holder.getImageView().setVisibility(View.GONE);
+
+            //TODO criar funcao preencher imagem
+            holder.getImageView().setScaleType(ImageView.ScaleType.CENTER);
+            fillImages(holder, rssObject.getItems().get(position).getCategory());
+
         }else{
             new DownloadImageTask(holder.getImageView()).execute(rssObject.getItems().get(position).getUrlImage());
         }
@@ -111,6 +115,72 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.FeedViewHolder
         fillImageLogo(holder, rssObject.getItems().get(position).getPlatform());
 
 
+    }
+
+    private void fillImages(final FeedViewHolder holder, String category){
+
+        switch (category){
+            case "Automotivos":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_automotivo));
+                break;
+            case "Bebes e Crianças":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_criancas));
+                break;
+            case "Casa e Cozinha":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_casa));
+                break;
+            case "Celulares e Smartphones":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_smartphone));
+                break;
+            case "Coisas e Produtos Grátis":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_gratis));
+                break;
+            case "Comida e Bebida":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_comida));
+                break;
+            case "Computadores e Informática":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_informatica));
+                break;
+            case "Eletrodomésticos":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_eletro));
+                break;
+            case "Entretenimento e Lazer":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_lazer));
+                break;
+            case "Esportes e Execícios":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_exercicio));
+                break;
+            case "Livros":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_livros));
+                break;
+            case "Moda e Acessórios":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_moda));
+                break;
+            case "PC, PlayStation e Xbox":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_videogames));
+                break;
+            case "Presentes e Serviços":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_presente));
+                break;
+            case "Restaurantes":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_restaurante));
+                break;
+            case "Saúde e Beleza":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_beleza));
+                break;
+            case "Tecnologia e Escritório":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_escritorio));
+                break;
+            case "TV, Som e Vídeo":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_tv));
+                break;
+            case "Viagens":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_viagem));
+                break;
+            case "Outros":
+                holder.getImageView().setImageDrawable(mContext.getResources().getDrawable(R.drawable.icone_outros));
+                break;
+        }
     }
 
     public void fillImageLogo(FeedViewHolder holder, String platform){

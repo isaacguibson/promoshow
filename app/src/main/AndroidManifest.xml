@@ -25,7 +25,8 @@
         <activity android:name=".ConfigActivity"
             android:screenOrientation="portrait"/>
 
-        <service android:name=".Service.DownloadService"/>
+        <service android:name=".Service.DownloadService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
     </application>
 
 </manifest>

@@ -1,7 +1,5 @@
 package com.myappcompany.isaac.dealday;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -27,6 +25,9 @@ public class DealsFragment extends Fragment {
 
 //    private SectionsPagerAdapter sectionsPagerAdapter;
 
+    ViewPager mViewPager;
+    TabViewPagerAdapter adapter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class DealsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_deals, container, false);
 
         // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = (ViewPager) view.findViewById(R.id.container);
+        mViewPager = (ViewPager) view.findViewById(R.id.container);
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
@@ -47,8 +48,15 @@ public class DealsFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        setupViewPager(mViewPager);
+    }
+
     private void setupViewPager(ViewPager viewPager) {
-        TabViewPagerAdapter adapter = new TabViewPagerAdapter(getChildFragmentManager());
+        adapter = new TabViewPagerAdapter(getChildFragmentManager());
         adapter.addFragment(new AllItemsFragment(), "Todos");
         adapter.addFragment(new SuggestionsItemsFragment(), "Sugestões");
         viewPager.setAdapter(adapter);

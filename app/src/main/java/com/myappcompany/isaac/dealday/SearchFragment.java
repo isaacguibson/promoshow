@@ -139,7 +139,7 @@ public class SearchFragment extends Fragment {
         itens = new ArrayList<Item>();
         rssObject = new RSSObject(itens);
         if(savedInstanceState == null){
-            adapter = new FeedAdapter(rssObject, getActivity());
+            adapter = new FeedAdapter(rssObject, getContext());
         }
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

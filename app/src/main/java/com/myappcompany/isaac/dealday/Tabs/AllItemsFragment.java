@@ -46,8 +46,10 @@ public class AllItemsFragment extends Fragment {
 
     private Bundle savedInstanceState;
 
+    private ConnectivityManager conectivtyManager;
+
     //Variavel para manter informação se o feed já foi carregado alguma vez!
-    boolean feedFilled;
+    //boolean feedFilled;
 
     @Nullable
     @Override
@@ -70,9 +72,21 @@ public class AllItemsFragment extends Fragment {
 
     private void init(){
         //dataBaseService = new DataBaseService(getContext());
-        feedFilled = false;
+        //feedFilled = false;
 
         itens = new ArrayList<Item>();
+
+        conectivtyManager = (ConnectivityManager) getActivity().getSystemService(getContext().CONNECTIVITY_SERVICE);
+
+        if(rssObject == null){
+            rssObject = new RSSObject(itens);
+        }
+
+        if(adapter == null){
+            adapter = new FeedAdapter(rssObject, getContext());
+        }
+
+        recyclerView.setAdapter(adapter);
 
         recyclerView.getRecycledViewPool().setMaxRecycledViews(0, 0);
 
@@ -139,7 +153,7 @@ public class AllItemsFragment extends Fragment {
             protected String doInBackground(String... strings) {
                 //adapter.getRssObject().getItems().add(new Item(null, null, null, null, null, null, null, false, true));
                 adapter.getRssObject().getItems().addAll(loadMore(totalItemsCount));
-                totalItemsCount = itens.size();
+                totalItemsCount = adapter.getRssObject().getItems().size();
 
                 return null;
             }
@@ -153,13 +167,13 @@ public class AllItemsFragment extends Fragment {
         AsyncTask<String, String, String> loadRSSAsync = new AsyncTask<String, String, String>() {
 
             @Override
-            protected void onPreExecute() {
+            protected synchronized void onPreExecute() {
                 mDialog.setMessage("Carregando...");
                 mDialog.show();
             }
 
             @Override
-            protected String doInBackground(String... params) {
+            protected synchronized String doInBackground(String... params) {
                 try{
                     if(MainActivity.getDataBaseService().totalItensCount() < 25) {
                         if(isConnected()){
@@ -183,13 +197,15 @@ public class AllItemsFragment extends Fragment {
 
                     itens = new ArrayList<Item>();
                     itens = MainActivity.getDataBaseService().getPageItems(0, false, "");
-                    totalItemsCount = itens.size();
 
-                    if(!feedFilled){
-                        rssObject = new RSSObject(itens);
-                    } else {
-                        rssObject.getItems().addAll(itens);
-                    }
+
+//                    if(!feedFilled){
+//                        rssObject = new RSSObject(itens);
+//                    } else {
+//                        rssObject.getItems().addAll(itens);
+//                    }
+
+                    rssObject.getItems().addAll(itens);
                 } catch (Exception e){
                     e.printStackTrace();
                 }
@@ -198,13 +214,14 @@ public class AllItemsFragment extends Fragment {
             }
 
             @Override
-            protected void onPostExecute(String s) {
-                if(!feedFilled){
-                    adapter = new FeedAdapter(rssObject, getActivity());
-                    recyclerView.setAdapter(adapter);
-                    feedFilled = true;
-                }
+            protected synchronized void onPostExecute(String s) {
+//                if(!feedFilled){
+//                    adapter = new FeedAdapter(rssObject, getContext());
+//                    recyclerView.setAdapter(adapter);
+//                    feedFilled = true;
+//                }
                 adapter.notifyDataSetChanged();
+                totalItemsCount = adapter.getRssObject().getItems().size();
 
                 if(!isConnected()){
                     Toast.makeText(getContext(), "Sem acesso à internet. Verifique sua conexão!", Toast.LENGTH_SHORT).show();
@@ -215,6 +232,7 @@ public class AllItemsFragment extends Fragment {
         };
 
         loadRSSAsync.execute();
+
     }
 
     //Atividade assincrona para baixar as promocoes
@@ -252,9 +270,8 @@ public class AllItemsFragment extends Fragment {
 
     //Testa se o usuário esta connectado
     //A internet
-    public  boolean isConnected() {
+    public boolean isConnected() {
         boolean conectado;
-        ConnectivityManager conectivtyManager = (ConnectivityManager) getActivity().getSystemService(getContext().CONNECTIVITY_SERVICE);
         if (conectivtyManager.getActiveNetworkInfo() != null
                 && conectivtyManager.getActiveNetworkInfo().isAvailable()
                 && conectivtyManager.getActiveNetworkInfo().isConnected()) {

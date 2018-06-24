@@ -133,17 +133,17 @@ public class  SuggestionsItemsFragment extends Fragment {
             empty_suggest.setVisibility(View.GONE);
         }
 
-        totalItemsCount = itens.size();
         rssObject = new RSSObject(itens);
-        adapter = new FeedAdapter(rssObject, getActivity());
+        adapter = new FeedAdapter(rssObject, getContext());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        totalItemsCount = adapter.getRssObject().getItems().size();
 
     }
 
     private void loadMoreItems(){
         adapter.getRssObject().getItems().addAll(loadMore(totalItemsCount));
-        totalItemsCount = itens.size();
+        totalItemsCount = adapter.getRssObject().getItems().size();
         adapter.notifyDataSetChanged();
     }
 

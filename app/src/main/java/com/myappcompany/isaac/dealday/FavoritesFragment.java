@@ -111,7 +111,7 @@ public class FavoritesFragment extends Fragment {
         itens = new ArrayList<Item>();
         itens = MainActivity.getDataBaseService().getFavoriteItems();
         rssObject = new RSSObject(itens);
-        adapter = new FeedAdapter(rssObject, getActivity());
+        adapter = new FeedAdapter(rssObject, getContext());
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

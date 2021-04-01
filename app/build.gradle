@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.myappcompany.isaac.dealday"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 5
-        versionName "1.0.4"
+        targetSdkVersion 29
+        versionCode 8
+        versionName "1.0.6"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

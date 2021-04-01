@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Promoshow.iml" filepath="$PROJECT_DIR$/Promoshow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Promoshow-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Promoshow-app.iml" group="Promoshow/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/android-projects-Promoshow.iml" filepath="$PROJECT_DIR$/.idea/modules/android-projects-Promoshow.iml" group="Promoshow" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
